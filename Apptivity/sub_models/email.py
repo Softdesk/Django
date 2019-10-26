@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 try:
     from django.db import models
@@ -6,14 +7,16 @@ except Exception:
     sys.exit()
     
 from .contacto import Contacto
+import datetime
 
-# Telefono model
-class Telefono(models.Model):
+# Email model
+class Email(models.Model):
     id: models.AutoField(primary_key=True)
-    telefono = models.CharField(max_length=10, default="")
+    correo = models.CharField(max_length=45, default="")
     tipo = models.CharField(max_length=10, default="") ##principal or secundario
     estado = models.BooleanField(default=True)
+    fecha_creacion = models.DateField(default=datetime.date.today)
     contacto = models.ForeignKey(Contacto,default=1, on_delete=models.CASCADE)
     
     class Meta:
-        db_table = "telefono"
+        db_table = "email"

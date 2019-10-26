@@ -7,6 +7,7 @@ except Exception:
     sys.exit()
     
 from .contacto import Contacto
+import datetime
 
 # Actividad model
 class Actividad(models.Model):
@@ -18,6 +19,7 @@ class Actividad(models.Model):
     ubicacion = models.CharField(max_length=250, default="")
     tipo = models.CharField(max_length=10, default="") ##principal or secundario
     estado = models.BooleanField(default=True)
+    fecha_creacion = models.DateField(default=datetime.date.today)
     contactos = models.ManyToManyField(Contacto,"actividades_contactos")
 
     class Meta:
