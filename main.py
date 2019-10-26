@@ -37,7 +37,7 @@ email2.tipo='SECUNDARIO'
 email2.contacto=contacto
 email2.save()
 
-print('Contacto Creado')
+print('Contacto Creado...')
 #Create Actividad
 actividad = Actividad()
 actividad.nombre = 'English Class'
@@ -47,6 +47,9 @@ actividad.fecha_fin= datetime.date(2019, 10, 9)
 actividad.ubicacion='Cartagena'
 actividad.tipo='CURRICULAR'
 actividad.save()
+
+print('Actividad Creada...')
+
 actividad.contactos.add(contacto)
 
-print('Actividad Creada')
+print('Contacto: ', contacto.nombre, ' Asociado a la actividad: ',actividad.nombre )
